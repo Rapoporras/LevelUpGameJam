@@ -381,9 +381,9 @@ Material:
     - _Alpha: 1
     - _AlphaCutoffValue: 0.25
     - _AlphaOutlineBlend: 1
-    - _AlphaOutlineGlow: 5
+    - _AlphaOutlineGlow: 69.3
     - _AlphaOutlineMinAlpha: 0
-    - _AlphaOutlinePower: 1
+    - _AlphaOutlinePower: 5
     - _AlphaRoundThreshold: 0.5
     - _BillboardY: 0
     - _BlurHD: 0
@@ -434,8 +434,8 @@ Material:
     - _GrassManualAnim: 1
     - _GrassManualToggle: 0
     - _GrassRadialBend: 0.1
-    - _GrassSpeed: 2
-    - _GrassWind: 20
+    - _GrassSpeed: 5.3
+    - _GrassWind: 12.9
     - _GreyscaleBlend: 1
     - _GreyscaleLuminosity: 0
     - _GreyscaleOutline: 0
@@ -522,7 +522,7 @@ Material:
     - _ZWrite: 0
     - _ZoomUvAmount: 0.5
     m_Colors:
-    - _AlphaOutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AlphaOutlineColor: {r: 1, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorChangeNewCol: {r: 1, g: 0, b: 0.009994984, a: 1}
     - _ColorChangeNewCol2: {r: 1, g: 1, b: 0, a: 1}
@@ -540,10 +540,10 @@ Material:
     - _GradTopLeftCol: {r: 1, g: 0, b: 0, a: 1}
     - _GradTopRightCol: {r: 1, g: 1, b: 0, a: 1}
     - _GreyscaleTintColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HitEffectColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HitEffectColor: {r: 1, g: 0, b: 0, a: 1}
     - _HologramStripeColor: {r: 0, g: 1, b: 1, a: 1}
     - _InnerOutlineColor: {r: 1, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0.6708865, b: 1, a: 1}
     - _OverlayColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShineColor: {r: 1, g: 1, b: 1, a: 1}
@@ -582,9 +582,9 @@ MonoBehaviour:
   vida: 4
   velocidad: 1
   layerPlanta:
-    serializedVersion: 2
     m_Bits: 64
   cadencia: 1
+  cadAux: 0
 --- !u!95 &588928161
 Animator:
   serializedVersion: 5
@@ -1417,6 +1417,8 @@ MonoBehaviour:
   Deck: {fileID: 0}
   PrefabCarta: {fileID: 0}
   TxtSoles: {fileID: 0}
+  Soles: 200
+  PlantaAusar: 0
 --- !u!4 &1710798922
 Transform:
   m_ObjectHideFlags: 0
