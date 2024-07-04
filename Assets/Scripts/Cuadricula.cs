@@ -55,6 +55,7 @@ public class Cuadricula : MonoBehaviour
                     Instantiate(personaje, zona.transform.position, Quaternion.identity);
                     // Marcar la zona como ocupada
                     zona.ocupada = true;
+                    Debug.Log("Personaje instanciado en la zona " + zona.ocupada);
                     // Desactivar la cuadrícula después de colocar el personaje
                     gameObject.SetActive(false);
                 }
