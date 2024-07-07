@@ -16,11 +16,13 @@ public class InstanciadorAtacantes : MonoBehaviour
     private int currentWave = 1;
     private int enemiesSpawned;
     private int enemiesDefeated;
+    public AK.Wwise.Event soundNewWave;
 
     void Start()
     {
         Debug.Log("InstanciadorAtacantes Start");
         InvokeRepeating("SpawnAtacante", spawnTime, spawnTime);
+        soundNewWave.Post(gameObject);
     }
     public void ResetSpawn()
     {
@@ -62,6 +64,7 @@ public class InstanciadorAtacantes : MonoBehaviour
 
     void AdvanceWave()
     {
+        soundNewWave.Post(gameObject);
         if (currentWave >= maxWaves)
         {
             InvokeBoss();

@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
     public GameObject winScreen;
     public GameObject pauseScreen;
     public bool isPaused = false;
+
+    public AK.Wwise.Event soundWin;
+    public AK.Wwise.Event soundGameOver;
+    public AK.Wwise.Event soundRecarge;
+    public AK.Wwise.Event soundButton;
+    // public AK.Wwise.Event soundImpancto;
     private void Awake()
     {
         // Verificar si ya existe una instancia del Singleton
@@ -44,7 +50,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameOver = false;
+        winScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
+        instanciadorAtacantes.ResetSpawn();
+        Time.timeScale = 1;
+        soundButton.Post(gameObject);
         statusController.SetInitialValues();
         StartCoroutine(GenerateEnergy());
     }
@@ -73,7 +84,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(gameOver){
+        if (gameOver)
+        {
             GameOver();
         }
     }
@@ -88,6 +100,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
 
+        soundButton.Post(gameObject);
         isPaused = false;
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
@@ -102,13 +115,16 @@ public class GameManager : MonoBehaviour
         instanciadorAtacantes.ResetSpawn();
         StartCoroutine(GenerateEnergy());
         Time.timeScale = 1;
+        soundButton.Post(gameObject);
     }
 
     public void GameOver()
     {
+        soundGameOver.Post(gameObject);
         gameOver = true;
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
+
     }
 
     public void WinGame()
@@ -116,23 +132,24 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         winScreen.SetActive(true);
         Time.timeScale = 0;
+        soundGameOver.Post(gameObject);
+
     }
 
     public void MainMenu()
     {
+        soundButton.Post(gameObject);
         SceneManager.LoadScene("MainMenu");
 
     }
 
     public void QuitGame()
     {
+        soundButton.Post(gameObject);
         Application.Quit();
     }
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("LoopGame");
-    }
+
     public void EnemigoDerrotado()
     {
         instanciadorAtacantes.EnemyDefeated();
@@ -145,6 +162,7 @@ public class GameManager : MonoBehaviour
     public void SumarEnergia(int cantidad)
     {
         statusController.SumarEnergia(cantidad);
+        soundRecarge.Post(gameObject);
     }
 
 

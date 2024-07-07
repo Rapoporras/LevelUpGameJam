@@ -84,7 +84,7 @@ public class Defensor : Personaje
             {
                 Debug.Log("Explota");
                 anim.SetTrigger("explota");
-
+                // Destroy(gameObject);
                 // if (!isDestroyed && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
                 // {
                 //     Destroy(gameObject);
@@ -99,7 +99,10 @@ public class Defensor : Personaje
         }
     }
 
-
+    public void Destruir()
+    {
+        Destroy(gameObject);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Atacante"))

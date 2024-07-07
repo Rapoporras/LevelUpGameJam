@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -7366702334662464202}
   - component: {fileID: 6034910005106029452}
   - component: {fileID: 407311069983940180}
+  - component: {fileID: 6147669618750447927}
+  - component: {fileID: 6707563523857390995}
   m_Layer: 6
   m_Name: Bosssheet2_0
   m_TagString: Untagged
@@ -170,7 +172,20 @@ MonoBehaviour:
   costeInvocacion: 10
   "da\xF1o": 50
   speed: 0.3
+  zona: {fileID: 0}
   Atacando: 1
+  soundEventHit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b325df21627e5e64bbcbbc4e55f74051, type: 2}
+  soundEventAttack:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7e4fec60764bb7741901c2c8ba51db35, type: 2}
+  soundEventDeath:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d41e67ee7ff1b0e409dcb4f04fb0036b, type: 2}
 --- !u!50 &407311069983940180
 Rigidbody2D:
   serializedVersion: 4
@@ -198,3 +213,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &6147669618750447927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329667528739041817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6c796f42d99f448a89672da55244e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &6707563523857390995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329667528739041817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f773e918ca8b464690e57b642eab240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: aa6a5444c9b589e48bd373b21e01c5da, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}

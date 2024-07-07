@@ -7,6 +7,8 @@ public class Cuadricula : MonoBehaviour
 
     public GameObject personaje; // El personaje a instanciar
     public Zona[] zonas; // Las zonas de la cuadrícula
+    public AK.Wwise.Event soundEvent;
+
     private void Awake()
     {
         this.gameObject.SetActive(false);
@@ -51,10 +53,12 @@ public class Cuadricula : MonoBehaviour
                 Zona zona = hit.collider.GetComponent<Zona>();
                 if (zona != null && !zona.ocupada)
                 {
+                    soundEvent.Post(gameObject);
                     // Instanciar el personaje en la posición de la zona
-                    Instantiate(personaje, new Vector3(zona.transform.position.x, zona.transform.position.y, 0), Quaternion.identity);
+                    GameObject instanciado = Instantiate(personaje, new Vector3(zona.transform.position.x, zona.transform.position.y, 0), Quaternion.identity);
                     // Marcar la zona como ocupada
                     zona.ocupada = true;
+                    instanciado.GetComponent<Personaje>().zona = zona.gameObject;
                     Debug.Log("Personaje instanciado en la zona " + zona.ocupada);
                     // Desactivar la cuadrícula después de colocar el personaje
                     gameObject.SetActive(false);

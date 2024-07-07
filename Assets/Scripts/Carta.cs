@@ -21,7 +21,7 @@ public class Carta : MonoBehaviour
     [SerializeField] private Sprite fondoCartaCientifico; // Fondo de la carta del bando Científico
     [SerializeField] private Sprite fondoCartaTerraplanista; // Fondo de la carta del bando Terraplanista
     [SerializeField] private TextMeshProUGUI textoCosteInvocacion; // Texto que muestra el coste de invocación del personaje
-    
+    // public AK.Wwise.Event myEvent;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -67,6 +67,7 @@ public class Carta : MonoBehaviour
         {
             if (cuadricula.HayZonasDisponibles() && personajePrefab.GetComponent<Personaje>().costeInvocacion <= GameManager.instance.GetEnergy())
             {
+                // myEvent.Post(gameObject);
                 // Pasar el personaje a la cuadrícula y mostrar la cuadrícula
                 cuadricula.SetPersonaje(personajePrefab);
                 cuadricula.gameObject.SetActive(true);

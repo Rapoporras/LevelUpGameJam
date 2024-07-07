@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 5102194139455584744}
   - component: {fileID: 5054104199113862461}
   - component: {fileID: 5207875390789430087}
+  - component: {fileID: 4281210823870624230}
+  - component: {fileID: 5138823825622170087}
+  - component: {fileID: 417788901437868820}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,6 +55,26 @@ MonoBehaviour:
   instanciadorAtacantes: {fileID: 5054104199113862461}
   timeSpawnEnergy: 5
   energyPerTime: 10
+  gameOverScreen: {fileID: 0}
+  winScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  isPaused: 0
+  soundWin:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 29873fd324534c84f9213d1972b668c2, type: 2}
+  soundGameOver:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2f9b1a439e1a70f4aaeaeabb9f519e57, type: 2}
+  soundRecarge:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b63951abaa4e54149ba2ad7d967ecea8, type: 2}
+  soundButton:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9226e5d15309e244faded5e1a7e521ee, type: 2}
 --- !u!114 &5054104199113862461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,12 +96,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  spawnTime: 4
+  spawnTime: 5
   enemiesPerWave: 10
   enemiesDefeatedToAdvance: 10
   maxWaves: 4
   bossPrefab: {fileID: 7329667528739041817, guid: 486f178f8d501544babbac37a10ff985, type: 3}
   bossSpawnPoint: {fileID: 0}
+  soundNewWave:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f6a3e34e75fc04648b56dfce0be6f47c, type: 2}
 --- !u!114 &5207875390789430087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,3 +130,78 @@ MonoBehaviour:
   currentEnergy: 0
   currentHealth: 0
   currentHorda: 0
+--- !u!114 &4281210823870624230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891254408442678826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd83ab5db2d99e4a91b694e6432bc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 495f811045c97514a814f5c5de38665e, type: 2}
+  valueIdInternal: 0
+  groupIdInternal: 0
+  valueGuidInternal: 
+  groupGuidInternal: 
+--- !u!114 &5138823825622170087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891254408442678826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6c796f42d99f448a89672da55244e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &417788901437868820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891254408442678826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f773e918ca8b464690e57b642eab240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 77ec419c20fc18148a4ad064b7f88645, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}

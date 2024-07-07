@@ -9,8 +9,14 @@ public class Personaje : MonoBehaviour
     public int costeInvocacion;
     public int daño;
     public float speed;
-
+    public GameObject zona;
     public bool Atacando; // Si es true el jugador es el bando Cientifico, si es false el jugador es el bando Terraplanista
+    
+     public AK.Wwise.Event soundEventHit;
+
+     public AK.Wwise.Event soundEventAttack;
+
+     public    AK.Wwise.Event soundEventDeath;
     void Start()
     {
         if (Atacando != true)
@@ -20,6 +26,7 @@ public class Personaje : MonoBehaviour
         if (vida == 0)
         {
             Debug.Log("Vida no asignada");
+          
         }
     }
 
@@ -29,6 +36,7 @@ public class Personaje : MonoBehaviour
         if (vida <= 0)
         {
             Destroy(gameObject);
+              soundEventDeath.Post(gameObject);
         }
 
         if (Atacando)
@@ -36,7 +44,12 @@ public class Personaje : MonoBehaviour
             mover();
         }
     }
-
+    private void OnDestroy() {
+        if(zona!=null)
+        {
+           zona.GetComponent<Zona>().ocupada = false;
+        }
+    }
     public void mover()
     {
 
@@ -51,6 +64,7 @@ public class Personaje : MonoBehaviour
     public virtual void RecibirDaño(int cantidad)
     {
         vida -= cantidad;
+        soundEventHit.Post(gameObject);
     }
 
 

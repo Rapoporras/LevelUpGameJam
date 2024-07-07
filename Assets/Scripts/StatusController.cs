@@ -24,7 +24,7 @@ public class StatusController : MonoBehaviour
     void Start()
     {
         // Inicializa la energía y vida actuales al máximo al comienzo del juego
-
+        SetInitialValues();
     }
 
     /// <summary>

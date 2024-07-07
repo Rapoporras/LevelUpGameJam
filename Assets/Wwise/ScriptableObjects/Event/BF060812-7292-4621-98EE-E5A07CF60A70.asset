@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e856d180b984eba49894decfbec3b401, type: 3}
+  m_Name: BF060812-7292-4621-98EE-E5A07CF60A70
+  m_EditorClassIdentifier: 
+  objectName: Pajaro_dead
+  id: 2534884507
+  guid: BF060812-7292-4621-98EE-E5A07CF60A70
