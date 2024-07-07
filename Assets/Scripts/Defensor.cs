@@ -34,6 +34,16 @@ public class Defensor : Personaje
 
             }
         }
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+            soundEventDeath.Post(gameObject);
+        }
+
+        if (Atacando)
+        {
+            mover();
+        }
 
     }
 
