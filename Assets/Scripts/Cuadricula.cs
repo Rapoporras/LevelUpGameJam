@@ -52,7 +52,7 @@ public class Cuadricula : MonoBehaviour
                 if (zona != null && !zona.ocupada)
                 {
                     // Instanciar el personaje en la posición de la zona
-                    Instantiate(personaje, zona.transform.position, Quaternion.identity);
+                    Instantiate(personaje, new Vector3(zona.transform.position.x, zona.transform.position.y, 0), Quaternion.identity);
                     // Marcar la zona como ocupada
                     zona.ocupada = true;
                     Debug.Log("Personaje instanciado en la zona " + zona.ocupada);

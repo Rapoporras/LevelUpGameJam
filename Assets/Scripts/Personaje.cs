@@ -8,12 +8,19 @@ public class Personaje : MonoBehaviour
     public int vida; // La vida del personaje
     public int costeInvocacion;
     public int daño;
-    public int speed;
+    public float speed;
 
     public bool Atacando; // Si es true el jugador es el bando Cientifico, si es false el jugador es el bando Terraplanista
     void Start()
     {
-        GameManager.instance.RestarEnergia(costeInvocacion);
+        if (Atacando != true)
+        {
+            GameManager.instance.RestarEnergia(costeInvocacion);
+        }
+        if (vida == 0)
+        {
+            Debug.Log("Vida no asignada");
+        }
     }
 
     // Update is called once per frame
@@ -29,10 +36,7 @@ public class Personaje : MonoBehaviour
             mover();
         }
     }
-    public void destruir()
-    {
-        Destroy(gameObject);
-    }
+
     public void mover()
     {
 
@@ -48,4 +52,6 @@ public class Personaje : MonoBehaviour
     {
         vida -= cantidad;
     }
+
+
 }

@@ -1,17 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
-    public int energia = 100; // El energia inicial del jugador
-    [SerializeField] private TextMeshProUGUI energiaText; // Texto para mostrar la energia del jugador
+
+    // [SerializeField] private TextMeshProUGUI energiaText; // Texto para mostrar la energia del jugador
     public bool gameOver = false; // Indica si el juego ha terminado
     public bool bandoJugador = true; // Si es true el jugador es el bando Cientifico, si es false el jugador es el bando Terraplanista
-    [SerializeField] private TextMeshProUGUI bandoText;
+                                     // [SerializeField] private TextMeshProUGUI bandoText;
+    public StatusController statusController;
+    public InstanciadorAtacantes instanciadorAtacantes;
+
+    public float timeSpawnEnergy = 5f;
+    public int energyPerTime = 10;
+
+    public GameObject gameOverScreen;
+    public GameObject winScreen;
+    public GameObject pauseScreen;
+    public bool isPaused = false;
     private void Awake()
     {
         // Verificar si ya existe una instancia del Singleton
@@ -31,50 +44,141 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        energiaText.text = energia.ToString();
 
-
+        statusController.SetInitialValues();
         StartCoroutine(GenerateEnergy());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bandoJugador)
+        // if (bandoJugador)
+        // {
+        //     bandoText.text = "Científico";
+        // }
+        // else
+        // {
+        //     bandoText.text = "Terraplanista";
+        // }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bandoText.text = "Científico";
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
         }
-        else
-        {
-            bandoText.text = "Terraplanista";
+
+        if(gameOver){
+            GameOver();
         }
     }
 
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        isPaused = true;
+        pauseScreen.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+
+        isPaused = false;
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void ResetGame()
+    {
+        gameOver = false;
+        winScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
+        statusController.SetInitialValues();
+        instanciadorAtacantes.ResetSpawn();
+        StartCoroutine(GenerateEnergy());
+        Time.timeScale = 1;
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void WinGame()
+    {
+        gameOver = true;
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("LoopGame");
+    }
+    public void EnemigoDerrotado()
+    {
+        instanciadorAtacantes.EnemyDefeated();
+    }
     public void RestarEnergia(int cantidad)
     {
-        // Restar la cantidad de energia especificada
-        energia -= cantidad;
-        // Actualizar el texto de la energia
-        energiaText.text = energia.ToString();
+        statusController.RestarEnergia(cantidad);
     }
 
     public void SumarEnergia(int cantidad)
     {
-        // Sumar la cantidad de energia especificada
-        energia += cantidad;
-        // Actualizar el texto de la energia
-        energiaText.text = energia.ToString();
+        statusController.SumarEnergia(cantidad);
     }
 
+
+    public void RestarVida(int cantidad)
+    {
+        statusController.RestarVida(cantidad);
+    }
+
+    public void SumarVidaint(int cantidad)
+    {
+        statusController.SumarEnergia(cantidad);
+    }
+
+    // Llama a esta función para actualizar la energía
+    public int GetEnergy()
+    {
+
+        return statusController.GetEnergy();
+    }
     IEnumerator GenerateEnergy()
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
-            SumarEnergia(5);
+            yield return new WaitForSeconds(timeSpawnEnergy);
+            SumarEnergia(energyPerTime);
         }
     }
 
+
+    public void UpdateWave(int orda)
+    {
+
+        statusController.SumarHorda(orda);
+    }
     public void CambiarBando()
     {
         // Cambiar el bando del jugador

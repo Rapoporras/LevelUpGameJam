@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Carta : MonoBehaviour
@@ -11,7 +12,16 @@ public class Carta : MonoBehaviour
 
     public GameObject personajeBandoCientifico; // Prefab del personaje correspondiente al bando Científico
     public GameObject personajeBandoTerraplanista; // Prefab del personaje correspondiente al bando Terraplanista
+    private bool cuadriculaActiva = false; // Indica si la cuadrícula está activa
 
+    private SpriteRenderer spriteRenderer; // Referencia al SpriteRenderer del GameObject
+
+    [SerializeField] private GameObject spriteCientifico; // Sprite del bando Científico
+    [SerializeField] private GameObject spriteTerraplanista; // Sprite del bando Terraplanista
+    [SerializeField] private Sprite fondoCartaCientifico; // Fondo de la carta del bando Científico
+    [SerializeField] private Sprite fondoCartaTerraplanista; // Fondo de la carta del bando Terraplanista
+    [SerializeField] private TextMeshProUGUI textoCosteInvocacion; // Texto que muestra el coste de invocación del personaje
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -19,6 +29,21 @@ public class Carta : MonoBehaviour
     void Start()
     {
         setPersonajeBando();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (GameManager.instance.bandoJugador)
+        {
+            spriteRenderer.sprite = fondoCartaCientifico;
+            // GetComponent<SpriteRenderer>().sortingOrder = 1;
+            spriteCientifico.SetActive(true);
+
+        }
+        else
+        {
+            spriteRenderer.sprite = fondoCartaTerraplanista;
+            // GetComponent<SpriteRenderer>().sortingOrder = 1;
+            spriteTerraplanista.SetActive(true);
+        }
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -27,7 +52,7 @@ public class Carta : MonoBehaviour
     {
         setPersonajeBando();
         // Si no hay suficiente energía para invocar al personaje, mostrar el GameObject noDisponible
-        if (personajePrefab.GetComponent<Personaje>().costeInvocacion > GameManager.instance.energia)
+        if (personajePrefab.GetComponent<Personaje>().costeInvocacion > GameManager.instance.GetEnergy())
         {
             noDisponible.SetActive(true);
         }
@@ -38,11 +63,20 @@ public class Carta : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (cuadricula.HayZonasDisponibles() && personajePrefab.GetComponent<Personaje>().costeInvocacion <= GameManager.instance.energia)
+        if (cuadriculaActiva == false)
         {
-            // Pasar el personaje a la cuadrícula y mostrar la cuadrícula
-            cuadricula.SetPersonaje(personajePrefab);
-            cuadricula.gameObject.SetActive(true);
+            if (cuadricula.HayZonasDisponibles() && personajePrefab.GetComponent<Personaje>().costeInvocacion <= GameManager.instance.GetEnergy())
+            {
+                // Pasar el personaje a la cuadrícula y mostrar la cuadrícula
+                cuadricula.SetPersonaje(personajePrefab);
+                cuadricula.gameObject.SetActive(true);
+                cuadriculaActiva = true;
+            }
+        }
+        else
+        {
+            cuadricula.gameObject.SetActive(false);
+            cuadriculaActiva = false;
         }
     }
 
@@ -56,6 +90,8 @@ public class Carta : MonoBehaviour
         {
             personajePrefab = personajeBandoTerraplanista;
         }
+
+        textoCosteInvocacion.text = personajePrefab.GetComponent<Personaje>().costeInvocacion.ToString();
     }
 
 }

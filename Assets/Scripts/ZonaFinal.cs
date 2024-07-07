@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 
 public class ZonaFinal : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Personaje personaje = other.GetComponent<Personaje>();
-        if (personaje != null)
+        Debug.Log("Atacante llego al final");
+        if (other.CompareTag("Atacante"))
         {
-            personaje.destruir();
+            Debug.Log("Atacante llego al final");
+            Atacante atacante = other.GetComponent<Atacante>();
+            if (atacante != null)
+            {
+                atacante.LlegarAlFinal();
+                GameManager.instance.RestarVida(1);
+            }
         }
     }
 }

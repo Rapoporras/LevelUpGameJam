@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5323745472912303181}
+  - component: {fileID: 5102194139455584744}
+  - component: {fileID: 5054104199113862461}
+  - component: {fileID: 5207875390789430087}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -31,3 +34,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5102194139455584744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891254408442678826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce0947bef46aac4b942d6ebc79c7dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: 0
+  bandoJugador: 1
+  statusController: {fileID: 5207875390789430087}
+  instanciadorAtacantes: {fileID: 5054104199113862461}
+  timeSpawnEnergy: 5
+  energyPerTime: 10
+--- !u!114 &5054104199113862461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891254408442678826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fc5c5d1c24c5e4f97bfae6bda26f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atacantes:
+  - {fileID: 1363169594262682438, guid: c0e899cda1f5e6d498b7867ec2b0eb13, type: 3}
+  - {fileID: 237779277187660907, guid: 60d9a8319ec475245a3a3dcedd8e12da, type: 3}
+  - {fileID: 6942866949327094953, guid: af5d04b0533142e43bbe2ad73b981744, type: 3}
+  - {fileID: 7363144096805633280, guid: a66b4243e4a2c6949af27c2538dad86e, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnTime: 4
+  enemiesPerWave: 10
+  enemiesDefeatedToAdvance: 10
+  maxWaves: 4
+  bossPrefab: {fileID: 7329667528739041817, guid: 486f178f8d501544babbac37a10ff985, type: 3}
+  bossSpawnPoint: {fileID: 0}
+--- !u!114 &5207875390789430087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891254408442678826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc526ac67fc4a349ad7839dbad04bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  healthBar: {fileID: 0}
+  hordaBar: {fileID: 0}
+  hordaText: {fileID: 0}
+  energyText: {fileID: 0}
+  healthText: {fileID: 0}
+  maxEnergy: 100
+  maxHealth: 4
+  maxHorda: 4
+  currentEnergy: 0
+  currentHealth: 0
+  currentHorda: 0
