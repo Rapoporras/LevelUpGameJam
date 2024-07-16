@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6707563523857390995}
   m_Layer: 6
   m_Name: Bosssheet2_0
-  m_TagString: Untagged
+  m_TagString: Atacante
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,15 +177,15 @@ MonoBehaviour:
   soundEventHit:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b325df21627e5e64bbcbbc4e55f74051, type: 2}
+    WwiseObjectReference: {fileID: 0}
   soundEventAttack:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 7e4fec60764bb7741901c2c8ba51db35, type: 2}
+    WwiseObjectReference: {fileID: 0}
   soundEventDeath:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d41e67ee7ff1b0e409dcb4f04fb0036b, type: 2}
+    WwiseObjectReference: {fileID: 0}
 --- !u!50 &407311069983940180
 Rigidbody2D:
   serializedVersion: 4
@@ -255,7 +255,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: aa6a5444c9b589e48bd373b21e01c5da, type: 2}
+    WwiseObjectReference: {fileID: 0}
   useCallbacks: 0
   Callbacks: []
   playingId: 0
