@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6f8812601c1b9459311d149b79f329, type: 3}
+  m_Name: B1FA386C-5746-4DBC-A5CD-F50793305CFC
+  m_EditorClassIdentifier: 
+  objectName: CIENTIFICO
+  id: 3832981832
+  guid: B1FA386C-5746-4DBC-A5CD-F50793305CFC
+  WwiseStateGroupReference: {fileID: 11400000, guid: c6d8aba7b086fec4cb6ce366725ca2df, type: 2}

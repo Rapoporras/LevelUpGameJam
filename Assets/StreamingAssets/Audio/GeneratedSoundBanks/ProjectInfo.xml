@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="LEVEL UP JAM" GUID="{E8DCDAD5-F8DF-4469-90F4-3B5B735E6659}" Generator="2023.1.5.8522"/>
+	<CacheRoot>C:/Users/Rapoporras/Downloads/LEVEL UP JAM WWISE PROJECT V2-20240707T032650Z-001/LEVEL UP JAM WWISE PROJECT V2/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="iOS" GUID="{B65C60C4-9209-4B1C-8A07-126DE8AE0D03}" BasePlatform="iOS" BasePlatformGUID="{ECE03DB4-F948-462D-B2BB-A9173012B1F8}" Path="C:/Users/Rapoporras/Downloads/LEVEL UP JAM WWISE PROJECT V2-20240707T032650Z-001/LEVEL UP JAM WWISE PROJECT V2/GeneratedSoundBanks/iOS/"/>
+		<Platform Name="Windows" GUID="{C47D560D-E804-4892-B3DC-7786D9EFB8E0}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="C:/Users/Rapoporras/Downloads/LEVEL UP JAM WWISE PROJECT V2-20240707T032650Z-001/LEVEL UP JAM WWISE PROJECT V2/GeneratedSoundBanks/Windows/"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{5CCC4852-6287-415C-8C34-44DB236C11FF}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{5638F8D5-5203-B67A-719C-4160530A816F}</FileHash>
+</ProjectInfo>
